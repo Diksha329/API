@@ -36,6 +36,7 @@ class _ScreenAState extends State<ScreenA> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white,
       appBar: AppBar(),
       body: data == null
           ? Center(child: CircularProgressIndicator())
@@ -124,7 +125,7 @@ rating: double.parse(data[index]['rating']['rate'].toString()),ratingCount: "${d
                                       TextStyle(color: Colors.grey, fontSize: 10),
                                 ),
                               ),
-                              Text('Rs ${data[index]['price']}',style: TextStyle(fontWeight: FontWeight.w500),),
+                              Text('\$${data[index]['price']}',style: TextStyle(fontWeight: FontWeight.w500),),
                             ],
                           ),
                         ),

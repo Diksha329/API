@@ -12,6 +12,7 @@ String description;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(),
 body: Padding(
   padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -20,7 +21,10 @@ body: Padding(
   
     children: [
   
-      Image.network(image,width: MediaQuery.of(context).size.width,height: 300,),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Image.network(image,width: MediaQuery.of(context).size.width,height: 300,),
+      ),
   
       Text(title,style: TextStyle(fontSize: 16,),),
       
@@ -50,7 +54,7 @@ body: Padding(
       ),
       
  
-      Text('Rs ${price}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
+      Text('\$${price}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),),
   
       Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
