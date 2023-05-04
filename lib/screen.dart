@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:hbhb/next_screen.dart';
 
 class ScreenA extends StatefulWidget {
   const ScreenA({super.key});
@@ -42,15 +43,19 @@ class _ScreenAState extends State<ScreenA> {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
-              itemCount: 10,
+              itemCount: 20,
               itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Container(
-                          width: 180,
+                return GestureDetector(
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => NextScreen(
+                    title: data[index]['title'],
+                    description: data[index]['description'],
+image: data[index]['image'],price: '${data[index]['price']}',
+                    ) )),
+                  child: Card(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
                           child: Stack(
                             alignment: Alignment.bottomLeft,
                             children: [
@@ -72,7 +77,7 @@ class _ScreenAState extends State<ScreenA> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(25),
                                         color:
-                                            Color.fromARGB(179, 232, 232, 232)),
+                                            Color.fromARGB(194, 232, 232, 232)),
                                     child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
@@ -84,12 +89,12 @@ class _ScreenAState extends State<ScreenA> {
                                         
                                        Container(
                                         padding: EdgeInsets.symmetric(horizontal: 1),
-      height: 12,
-      child: VerticalDivider(
-        width: 6,thickness: 1,
-       
-      ),
-    ),
+                      height: 12,
+                      child: VerticalDivider(
+                        width: 6,thickness: 1,
+                       
+                      ),
+                    ),
                                         Text(
                                             '${data[index]['rating']['count']}',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
                                       ],
@@ -98,32 +103,32 @@ class _ScreenAState extends State<ScreenA> {
                             ],
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              data[index]['title'],
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w600),
-                              maxLines: 1,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Text(
-                                '${data[index]['description']}',
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                data[index]['title'],
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w600),
                                 maxLines: 1,
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 10),
                               ),
-                            ),
-                            Text('Rs ${data[index]['price']}'),
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 4),
+                                child: Text(
+                                  '${data[index]['description']}',
+                                  maxLines: 1,
+                                  style:
+                                      TextStyle(color: Colors.grey, fontSize: 10),
+                                ),
+                              ),
+                              Text('Rs ${data[index]['price']}',style: TextStyle(fontWeight: FontWeight.w500),),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
