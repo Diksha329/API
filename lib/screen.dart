@@ -60,28 +60,33 @@ class _ScreenAState extends State<ScreenA> {
                                 width: 100,
                               ),
                               Positioned(
-                                  bottom: 10,
-                                  left: 10,
+                                  bottom: 8,
+                                  left: 8,
                                   child: Container(
-                                    height: 18,
-                                    width: 80,
+                                    padding: EdgeInsets.symmetric(horizontal: 8,vertical: 2),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(25),
                                         color:
                                             Color.fromARGB(179, 232, 232, 232)),
-                                    child: Row(
+                                    child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                            '${data[index]['rating']['rate']}'),
+                                            '${data[index]['rating']['rate']}',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
                                         Icon(
                                           Icons.star,
-                                          size: 14,
+                                          size: 10,color: Colors.green,
                                         ),
-                                        VerticalDivider(
-                                          width: 2,
-                                        ),
+                                        
+                                       Container(
+                                        padding: EdgeInsets.symmetric(horizontal: 1),
+      height: 12, // set a fixed height for the parent widget
+      child: VerticalDivider(
+        width: 6,thickness: 1,
+       
+      ),
+    ),
                                         Text(
-                                            '${data[index]['rating']['count']}'),
+                                            '${data[index]['rating']['count']}',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
                                       ],
                                     ),
                                   ))
