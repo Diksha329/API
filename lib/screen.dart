@@ -54,10 +54,15 @@ class _ScreenAState extends State<ScreenA> {
                           child: Stack(
                             alignment: Alignment.bottomLeft,
                             children: [
-                              Image.network(
-                                data[index]['image'],
-                                height: 120,
-                                width: 100,
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 5),
+                                child: Align(alignment: Alignment.center,
+                                  child: Image.network(
+                                    data[index]['image'],
+                                    height: 120,
+                                    width: 100,
+                                  ),
+                                ),
                               ),
                               Positioned(
                                   bottom: 8,
@@ -79,7 +84,7 @@ class _ScreenAState extends State<ScreenA> {
                                         
                                        Container(
                                         padding: EdgeInsets.symmetric(horizontal: 1),
-      height: 12, // set a fixed height for the parent widget
+      height: 12,
       child: VerticalDivider(
         width: 6,thickness: 1,
        
