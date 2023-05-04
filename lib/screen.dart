@@ -50,6 +50,7 @@ class _ScreenAState extends State<ScreenA> {
                     title: data[index]['title'],
                     description: data[index]['description'],
 image: data[index]['image'],price: '${data[index]['price']}',
+rating: double.parse(data[index]['rating']['rate'].toString()),ratingCount: "${data[index]['rating']['count']}",
                     ) )),
                   child: Card(
                     child: Column(
